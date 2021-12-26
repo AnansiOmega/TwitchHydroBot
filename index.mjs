@@ -2,22 +2,22 @@
 // Email: quencherbot@yahoo.com
 //password: twitchbot
 
-
+// imports for getting the bot off the ground
 import fetch from 'node-fetch';
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
 
+// imports for the actual bot
 //const fetch = require('node-fetch');
 //const tmi = require('tmi.js');
 
-//app.get("/oauthValidation", (response) => {
-//    console.log(response)
-//    //var obj = { id : id, Content : "content " +id };
-//
-//    response.writeHead(200, {"Content-Type": "application/json"});
-//});
+
+//https://hydrationbot3noah.herokuapp.com/oauthValidation
+app.get("/oauthValidation", (response) => {
+    response.writeHead(200, {"Content-Type": "application/json"});
+});
 
 const fetchAutorizationToke = () => {
     fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
@@ -28,7 +28,6 @@ const Main = () => {
   fetchAutorizationToke()
 }
 
-//https://hydrationbot3noah.herokuapp.com/oauthValidation
 
 Main()
 
