@@ -10,26 +10,45 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // imports for the actual bot
-//const fetch = require('node-fetch');
-//const tmi = require('tmi.js');
+const tmi = require('tmi.js');
 
-
-//https://hydrationbot3noah.herokuapp.com/oauthValidation
-app.get("/oauthValidation", (response) => {
-    response.writeHead(200, {"Content-Type": "application/json"});
+const client = new tmi.Client({
+	options: { debug: true },
+	identity: {
+		username: process.env.USERNAME,
+		password: process.env.PASSWORD
+	},
+	channels: [ process.env.CHANNELS ]
 });
 
-const fetchAutorizationToke = () => {
-    fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
-    .then(resp => console.log(resp))
-};
+client.connect();
 
-const Main = () => {
-  fetchAutorizationToke()
-}
+client.on('message', (channel, tags, message, self) => {
+	// Ignore echoed messages.
+	if(self) return;
 
+	if(message.toLowerCase() === '!hello') {
+		// "@alca, heya!"
+		client.say(channel, `@${tags.username}, heya!`);
+	}
+});
 
-Main()
+//https://hydrationbot3noah.herokuapp.com/oauthValidation
+//app.get("/oauthValidation", (response) => {
+//    response.writeHead(200, {"Content-Type": "application/json"});
+//});
+//
+//const fetchAutorizationToke = () => {
+//    fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
+//    .then(resp => console.log(resp))
+//};
+
+//const Main = () => {
+//  fetchAutorizationToke()
+//}
+//
+//
+//Main()
 
 //// Define configuration options
 //const opts = {
