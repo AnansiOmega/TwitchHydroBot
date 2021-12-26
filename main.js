@@ -1,3 +1,8 @@
+// Hello
+//Yahoo bot email and password
+// Email: quencherbot@yahoo.com
+//password: twitchbot
+
 const tmi = require('tmi.js');
 
 // Define configuration options
