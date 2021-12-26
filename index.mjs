@@ -28,12 +28,27 @@ app.get("/oauthValidation", (response) => {
     //var obj = { id : id, Content : "content " +id };
 
     response.writeHead(200, {"Content-Type": "application/json"});
-    response.write(JSON.stringify(obj));
 });
+
+const fetchAutorizationTok = () => {
+  fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
+  .then(resp => resp.json())
+  .then(x => console.log(x))
+
+};
+
+
+// GET 
+//    &redirect_uri=<your registered redirect URI>
+//       &response_type=code
+//        &scope=<space-separated list of scopes>
+//           &claims=<JSON object specifying requested claims>
 
 const Main = () => {
   fetchValidate();
 }
+
+//https://hydrationbot3noah.herokuapp.com/oauthValidation
 
 Main()
 //// Define configuration options
