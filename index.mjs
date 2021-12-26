@@ -4,7 +4,7 @@
 //password: twitchbot
 
 import fetch from 'node-fetch';
-const express = require('express');
+import express from 'express';
 const app = express();
 //const fetch = require('node-fetch');
 //const tmi = require('tmi.js');
