@@ -34,7 +34,6 @@ const fetchAutorizationTok = () => {
   fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
   .then(resp => resp.json())
   .then(x => console.log(x))
-
 };
 
 
@@ -45,7 +44,7 @@ const fetchAutorizationTok = () => {
 //           &claims=<JSON object specifying requested claims>
 
 const Main = () => {
-  fetchValidate();
+  fetchAutorizationTok()
 }
 
 //https://hydrationbot3noah.herokuapp.com/oauthValidation
