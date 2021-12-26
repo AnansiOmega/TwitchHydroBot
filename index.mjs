@@ -10,8 +10,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // imports for the actual bot
-const tmi = require('tmi.js');
+//const tmi = require('tmi.js');
 
+import tmi from 'tmi.js'
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
