@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "tmi.js": "^1.8.5"
-  }
+  },
+  "name": "projects",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jankunasm/TwitchHydroBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jankunasm/TwitchHydroBot/issues"
+  },
+  "homepage": "https://github.com/jankunasm/TwitchHydroBot#readme",
+  "description": ""
 }
