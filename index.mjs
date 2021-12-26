@@ -3,21 +3,18 @@
 //password: twitchbot
 
 // imports for getting the bot off the ground
-import fetch from 'node-fetch';
-import express from 'express';
-const app = express();
+//import fetch from 'node-fetch';
+//import express from 'express';
+//const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
-
-// imports for the actual bot
-//const tmi = require('tmi.js');
-
 import tmi from 'tmi.js'
+			
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
 		username: process.env.USERNAME,
-		password: process.env.PASSWORD
+		password: process.env.ACCESSTOKEN
 	},
 	channels: [ process.env.CHANNELS ]
 });
@@ -33,6 +30,19 @@ client.on('message', (channel, tags, message, self) => {
 		client.say(channel, `@${tags.username}, heya!`);
 	}
 });
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////// O AUTH STUFF CAN REMAIN UNSUSED UNTIL LATER ////////////////////////////////////////////////////////////////////////////////////
 
 //https://hydrationbot3noah.herokuapp.com/oauthValidation
 //app.get("/oauthValidation", (response) => {
