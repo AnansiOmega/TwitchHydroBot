@@ -1,31 +1,16 @@
-// Hello
 //Yahoo bot email and password
 // Email: quencherbot@yahoo.com
 //password: twitchbot
+
 
 import fetch from 'node-fetch';
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
-//require('dotenv').config()
 
 //const fetch = require('node-fetch');
 //const tmi = require('tmi.js');
-
-//const fetchValidate = () => {
-//
-//  const myInit = {
-//    method: 'GET',
-//    headers: {'Authorization': 'l6plbnyohqpsmo7i2ynutvuem1b8d0'},
-//    mode: 'cors',
-//    cache: 'default'
-//  }
-//
-//  fetch('https://id.twitch.tv/oauth2/validate', myInit)
-//  .then(resp => resp.json())
-//  .then(x => console.log(x))
-//}
 
 //app.get("/oauthValidation", (response) => {
 //    console.log(response)
@@ -34,50 +19,19 @@ dotenv.config();
 //    response.writeHead(200, {"Content-Type": "application/json"});
 //});
 
-
-(async () => {
-  try {
-    await fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
-    .then(resp => resp.json())
-    .then(x => console.log(x))
-  } catch (booba) {
-    console.log(booba)
-  }
-})();
-
-
-//const fetchAutorizationTok = () => {
-//(async () => {
-//  try {
-//    await fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
-//    .then(resp => resp.json())
-//    .then(x => console.log(x))
-//  } catch (booba) {
-//    console.log(booba)
-//  }
-//})();
-//
-//}
-
-const fetchAutorizationTok = () => {
+const fetchAutorizationToke = () => {
     fetch(`https://id.twitch.tv/oauth2/authorize?client_id=${process.env.CLIENTID}&redirect_uri=https://hydrationbot3noah.herokuapp.com/oauthValidation&response_type=code&scope=openid`)
     .then(resp => console.log(resp))
 };
 
-
-// GET 
-//    &redirect_uri=<your registered redirect URI>
-//       &response_type=code
-//        &scope=<space-separated list of scopes>
-//           &claims=<JSON object specifying requested claims>
-
 const Main = () => {
-  fetchAutorizationTok()
+  fetchAutorizationToke()
 }
 
 //https://hydrationbot3noah.herokuapp.com/oauthValidation
 
 Main()
+
 //// Define configuration options
 //const opts = {
 //  identity: {
