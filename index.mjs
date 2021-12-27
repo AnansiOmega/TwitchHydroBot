@@ -25,12 +25,24 @@ client.on('message', (channel, tags, message, self) => {
 	// Ignore echoed messages.
 	if(self) return;
 
-	if(message.toLowerCase() === '!hello') {
-		// "@alca, heya!"
-		client.say(channel, `@${tags.username}, heya!`);
+	if(message.toLowerCase() === '!discord') {
+		client.say(channel, 'Here is a link to the discord channel: https://discord.gg/ZHVugYn4');
 	}
+
+  if(message.toLowerCase() === '!dice') {
+      let randomNum = Math.floor(Math.random() * 5 + 1)
+      client.say(channel, randomNum.toString())
+  }
+  console.log(channel, tags,message, self)
 });
 
+const hydrationReminder = () => {
+  client.say(process.env.CHANNELS, 'Drink some water fool')
+}
+
+
+
+const intervalID = setInterval(hydrationReminder, 3600000)
 
 
 
