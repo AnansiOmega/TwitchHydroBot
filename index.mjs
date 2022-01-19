@@ -13,10 +13,10 @@ import tmi from 'tmi.js'
 const client = new tmi.Client({
 	options: { debug: true },
 	identity: {
-		username: process.env.USERNAME,
-		password: process.env.ACCESSTOKEN
+		username: USERNAME,
+		password: ACCESSTOKEN
 	},
-	channels: [ process.env.CHANNELS ]
+	channels: [ CHANNELS ]
 });
 
 client.connect();
