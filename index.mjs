@@ -19,6 +19,7 @@ const client = new tmi.Client({
 	channels: [ process.env.CHANNELS ]
 });
 
+console.log(process.env.USERNAME)
 console.log(process.env.ACCESSTOKEN)
 client.connect();
 
